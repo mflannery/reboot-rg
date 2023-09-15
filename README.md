@@ -7,6 +7,14 @@ I got tired of playing the game of waiting for the RG to do something weird unti
 
 I have an old WTI networked PDU in my basement network rack (its only an 8U rack, don't think I have a full 42U rack in my basement!) that I can telnet into in order to turn on or off plugs/outlets.  This script uses expect to spawn a telnet session and inject the password and commands to turn off and then back on the outlet my RG is plugged into.  I use cron to execute this script every sunday at 3:30am.  So, every week my RG gets rebooted and hopefully this will keep it from going off on its own, blocking internet access or trying to charge my family for their internet use, though, that might not be a bad idea...  That will be another project.
 
-Place the script called reboot-rg.sh in any directory you want.  I run a Fedora 38 server and put it in /opt.  Add a crontab line to /etc/crontab to execute this script when and how frequently you want and then let it fly. This script will create logs in /var/log called reboot-rg.log.  
+First install expect
+
+```sudo dnf install expect -y```
+
+And then install telnet
+
+```sudo dnf install telnet -y```
+
+Next place the script called reboot-rg.sh in any directory you want.  I run a Fedora 38 server and put it in /opt. Add a crontab line to /etc/crontab to execute this script when and how frequently you want and then let it fly. This script will create logs in /var/log called reboot-rg.log.  
 
 Enjoy!
